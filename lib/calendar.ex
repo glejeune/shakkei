@@ -107,12 +107,6 @@ defmodule Calendar do
         utc: record.utc
       ]
     end
-    defp find_valid({year, month, day}=date) do
-      case :calendar.valid_date(date) do
-        true -> date
-        false -> find_valid({year, month, day - 1})
-      end
-    end
     def add(value, unit, record) when unit in [:day, :days] do
       {year, month, day} = :calendar.gregorian_days_to_date(:calendar.date_to_gregorian_days(record.to_date) + value);
       Calendar.DateTime[
@@ -143,6 +137,12 @@ defmodule Calendar do
         second: second, 
         utc: record.utc
       ]
+    end
+    defp find_valid({year, month, day}=date) do
+      case :calendar.valid_date(date) do
+        true -> date
+        false -> find_valid({year, month, day - 1})
+      end
     end
 
     def inspect(record) do
