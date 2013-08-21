@@ -6,9 +6,10 @@ defmodule Shakkei.Mixfile do
       app: :shakkei,
       version: "0.0.1",
       deps: deps,
-      source_url: "https://github.com/glejeune/ex_utils",
+      source_url: "https://github.com/glejeune/shakkei",
       homepage_url: "http://glejeune.github.io/shakkei/",
-      name: "shakkei"
+      name: "shakkei",
+      docs: [readme: true, source_url_pattern: "https://github.com/glejeune/shakkei"]
     ]
   end
 
