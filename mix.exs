@@ -7,6 +7,7 @@ defmodule Shakkei.Mixfile do
       version: "0.0.1",
       deps: deps,
       source_url: "https://github.com/glejeune/ex_utils",
+      homepage_url: "http://glejeune.github.io/shakkei/",
       name: "shakkei"
     ]
   end
