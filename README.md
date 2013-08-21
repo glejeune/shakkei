@@ -1,5 +1,7 @@
 # Shakkei
 
+[Documentation](http://glejeune.github.io/shakkei/docs/index.html)
+
 # Licence
 
 Copyright (c) 2013, Gregoire Lejeune
