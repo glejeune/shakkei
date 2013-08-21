@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calendar</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <h1>
+        Calendar
+        
+      </h1>
+
+      
+        <div id="moduledoc" class="docstring">
+          <p>This module allow you to manipulate date and time informations.</p>
+
+        </div>
+      
+
+      <a href="" target="_blank" class="view_source">Source</a>
+
+      
+
+      
+        <h2 id="functions_summary">Functions summary</h2>
+        <ul class="summary">
+          <li>
+  <span class="summary_signature">
+    <a href="#compare/2">compare/2</a>
+  </span>
+</li>
+<li>
+  <span class="summary_signature">
+    <a href="#datetime/1">datetime/1</a>
+  </span>
+</li>
+<li>
+  <span class="summary_signature">
+    <a href="#datetime/2">datetime/2</a>
+  </span>
+</li>
+<li>
+  <span class="summary_signature">
+    <a href="#easter/1">easter/1</a>
+  </span>
+</li>
+<li>
+  <span class="summary_signature">
+    <a href="#is_futur/1">is_futur/1</a>
+  </span>
+</li>
+<li>
+  <span class="summary_signature">
+    <a href="#is_past/1">is_past/1</a>
+  </span>
+</li>
+<li>
+  <span class="summary_signature">
+    <a href="#now/0">now/0</a>
+  </span>
+</li>
+<li>
+  <span class="summary_signature">
+    <a href="#parse/1">parse/1</a>
+  </span>
+</li>
+<li>
+  <span class="summary_signature">
+    <a href="#strftime/2">strftime/2</a>
+  </span>
+</li>
+<li>
+  <span class="summary_signature">
+    <a href="#tomorrow/0">tomorrow/0</a>
+  </span>
+</li>
+<li>
+  <span class="summary_signature">
+    <a href="#yesterday/0">yesterday/0</a>
+  </span>
+</li>
+
+        </ul>
+      
+
+      
+
+      
+
+      
+
+      
+        <div id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <div class="detail">
+  <p class="signature" id="compare/2">
+    <strong>compare(dt1, dt2)</strong>
+  </p>
+  
+  <div class="docstring"><p>Compare to Calendar.DateTime.</p>
+
+<h2>Return</h2>
+
+<ul>
+<li>0 if the two datetime are identical</li>
+<li>1 if the first DateTime is greater than the second one</li>
+<li>-1 if the first DateTime is lower than to the second one</li>
+</ul>
+
+<h2>Example</h2>
+
+<pre><code>iex&gt; Calendar.compare(Calendar.now(), Calendar.tomorrow())
+-1
+iex&gt; Calendar.compare(Calendar.now(), Calendar.yesterday())
+1
+iex&gt; Calendar.compare(Calendar.now(), Calendar.now())
+0
+</code></pre>
+</div>
+  
+</div>
+<div class="detail">
+  <p class="signature" id="datetime/1">
+    <strong>datetime(dt)</strong>
+  </p>
+  
+  <div class="docstring"><p>Create a Calendar.DateTime</p>
+</div>
+  
+</div>
+<div class="detail">
+  <p class="signature" id="datetime/2">
+    <strong>datetime(arg1, utc)</strong>
+  </p>
+  
+  <div class="docstring"></div>
+  
+</div>
+<div class="detail">
+  <p class="signature" id="easter/1">
+    <strong>easter(year)</strong>
+  </p>
+  
+  <div class="docstring"><p>Returns the date for Easter (Roman Catholic) in `year&#39;</p>
+
+<h2>Example</h2>
+
+<pre><code>iex&gt; Calendar.easter(2012)
+Calendar.DateTime[year: 2012, month: 4, day: 8, hour: 0, minute: 0, second: 0,
+ utc: 0]
+</code></pre>
+</div>
+  
+</div>
+<div class="detail">
+  <p class="signature" id="is_futur/1">
+    <strong>is_futur(dt)</strong>
+  </p>
+  
+  <div class="docstring"><p>Return true if the given date is in the futur</p>
+
+<h2>Example</h2>
+
+<pre><code>iex&gt; Calendar.is_futur(Calendar.now())
+false
+iex&gt; Calendar.is_futur(Calendar.tomorrow())
+true
+iex&gt; Calendar.is_futur(Calendar.yesterday())
+false
+</code></pre>
+</div>
+  
+</div>
+<div class="detail">
+  <p class="signature" id="is_past/1">
+    <strong>is_past(dt)</strong>
+  </p>
+  
+  <div class="docstring"><p>Return true if the given date is in the past</p>
+
+<h2>Example</h2>
+
+<pre><code>iex&gt; Calendar.is_past(Calendar.now())
+false
+iex&gt; Calendar.is_past(Calendar.tomorrow())
+true
+iex&gt; Calendar.is_past(Calendar.yesterday())
+false
+</code></pre>
+</div>
+  
+</div>
+<div class="detail">
+  <p class="signature" id="now/0">
+    <strong>now()</strong>
+  </p>
+  
+  <div class="docstring"><p>return a Calendar.DateTime record corresponding to the current local time.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <p class="signature" id="parse/1">
+    <strong>parse(str)</strong>
+  </p>
+  
+  <div class="docstring"><p>Parse the given string and return the corresponding Calendar.DateTime</p>
+
+<h2>Example</h2>
+
+<pre><code>iex&gt; Calendar.parse(&quot;2010-09-01 20:49:05 UTC-4&quot;)
+Calendar.DateTime[year: 2010, month: 9, day: 1, hour: 20, minute: 49, second: 5,
+ utc: -4]
+iex&gt; Calendar.parse(&quot;2010-09-01T20:49:05.185Z&quot;)
+Calendar.DateTime[year: 2010, month: 9, day: 1, hour: 20, minute: 49, second: 5,
+ utc: 0]
+</code></pre>
+</div>
+  
+</div>
+<div class="detail">
+  <p class="signature" id="strftime/2">
+    <strong>strftime(format, datetime)</strong>
+  </p>
+  
+  <div class="docstring"><p>Return a formated string of the given Calendar.DateTime record, according to the string pointed to by format.</p>
+
+<h2>Format string</h2>
+
+<ul>
+<li><em>%%</em> - is replaced by `%&#39;.</li>
+<li><em>%Z</em> - is replaced by the time zone name. (not yet supported)</li>
+<li><em>%Y</em> - is replaced by the year with century as a decimal number.</li>
+<li><em>%y</em> - is replaced by the year without century as a decimal number (00-99).</li>
+<li><em>%A</em> - is replaced by national representation of the full weekday name. (not yet supported)</li>
+<li><em>%a</em> - is replaced by national representation of the abbreviated weekday name. (not yet supported)</li>
+<li><em>%B</em> - is replaced by national representation of the full month name. (not yet supported)</li>
+<li><em>%b</em> - is replaced by national representation of the abbreviated month name. (not yet supported)</li>
+<li><em>%C</em> - is replaced by (year / 100) as decimal number; single digits are preceded by a zero.</li>
+<li><em>%c</em> - is replaced by national representation of time and date. (not yet supported)</li>
+<li><em>%D</em> - is equivalent to ``%m/%d/%y&#39;&#39;.</li>
+<li><em>%d</em> - is replaced by the day of the month as a decimal number (01-31).</li>
+<li><em>%e</em> - is replaced by the day of the month as a decimal number (1-31); single digits are preceded by a blank.</li>
+<li><em>%F</em> - is equivalent to ``%Y-%m-%d&#39;&#39;.</li>
+<li><em>%G</em> - is replaced by a year as a decimal number with century.  This year is the one that contains the greater part of the week (Monday as the first day of the week). (not yet supported)</li>
+<li><em>%g</em> - is replaced by the same year as in ``%G&#39;&#39;, but as a decimal number without century (00-99). (not yet supported)</li>
+<li><em>%H</em> - is replaced by the hour (24-hour clock) as a decimal number (00-23).</li>
+<li><em>%h</em> - the same as %b.</li>
+<li><em>%I</em> - is replaced by the hour (12-hour clock) as a decimal number (01-12).</li>
+<li><em>%j</em> - is replaced by the day of the year as a decimal number (001-366).</li>
+<li><em>%k</em> - is replaced by the hour (24-hour clock) as a decimal number (0-23); single digits are preceded by a blank.</li>
+<li><em>%l</em> - is replaced by the hour (12-hour clock) as a decimal number (1-12); single digits are preceded by a blank.</li>
+<li><em>%M</em> - is replaced by the minute as a decimal number (00-59).</li>
+<li><em>%m</em> - is replaced by the month as a decimal number (01-12).</li>
+<li><em>%n</em> - is replaced by a newline.</li>
+<li><em>%p</em> - is replaced by national representation of either &quot;ante meridiem&quot; (a.m.)  or &quot;post meridiem&quot; (p.m.)  as appropriate.</li>
+<li><em>%R</em> - is equivalent to ``%H:%M&#39;&#39;.</li>
+<li><em>%r</em> - is equivalent to ``%I:%M:%S %p&#39;&#39;.</li>
+<li><em>%S</em> - is replaced by the second as a decimal number (00-60).</li>
+<li><em>%s</em> - is replaced by the number of seconds since the Epoch, UTC (see mktime(3)).</li>
+<li><em>%T</em> - is equivalent to ``%H:%M:%S&#39;&#39;.</li>
+<li><em>%t</em> - is replaced by a tab.</li>
+<li><em>%U</em> - is replaced by the week number of the year (Sunday as the first day of the week) as a decimal number (00-53).</li>
+<li><em>%u</em> - is replaced by the weekday (Monday as the first day of the week) as a decimal number (1-7).</li>
+<li><em>%V</em> - is replaced by the week number of the year (Monday as the first day of the week) as a decimal number (01-53).  If the week containing January 1 has four or more days in the new year, then it is week 1; otherwise it is the last week of the previous year, and the next week is week 1. (not yet supported)</li>
+<li><em>%v</em> - is equivalent to ``%e-%b-%Y&#39;&#39;. (not yet supported)</li>
+<li><em>%W</em> - is replaced by the week number of the year (Monday as the first day of the week) as a decimal number (00-53). (not yet supported)</li>
+<li><em>%w</em> - is replaced by the weekday (Sunday as the first day of the week) as a decimal number (0-6). (not yet supported)</li>
+<li><em>%X</em> - is replaced by national representation of the time. (not yet supported)</li>
+<li><em>%x</em> - is replaced by national representation of the date. (not yet supported)</li>
+<li><em>%z</em> - is replaced by the time zone offset from UTC; a leading plus sign stands for east of UTC, a minus sign for west of UTC, hours and minutes follow with two digits each and no delimiter between them (common form for RFC 822 date headers).</li>
+</ul>
+</div>
+  
+</div>
+<div class="detail">
+  <p class="signature" id="tomorrow/0">
+    <strong>tomorrow()</strong>
+  </p>
+  
+  <div class="docstring"><p>return a Calendar.DateTime record corresponding to the tomorrow local time.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <p class="signature" id="yesterday/0">
+    <strong>yesterday()</strong>
+  </p>
+  
+  <div class="docstring"><p>return a Calendar.DateTime record corresponding to the yesterday local time.</p>
+</div>
+  
+</div>
+
+        </div>
+      
+
+      
+
+      
+    </div>
+  </body>
+</html>
