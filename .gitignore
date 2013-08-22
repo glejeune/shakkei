@@ -1,6 +1,5 @@
 /ebin
 /deps
-/docs
 mix.lock
 erl_crash.dump
 *.ez
