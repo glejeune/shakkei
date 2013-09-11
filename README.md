@@ -1,5 +1,9 @@
 # Shakkei
 
+[![Build Status](https://travis-ci.org/glejeune/shakkei.png?branch=master)](https://travis-ci.org/glejeune/shakkei)
+
+Shakkei[^SHAKKEI] is a set of useful modules for Elixir
+
 [Documentation](http://glejeune.github.io/shakkei/docs/index.html)
 
 # Licence
@@ -23,3 +27,5 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
 ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+[^SHAKKEI]: [http://en.wikipedia.org/wiki/Shakkei](http://en.wikipedia.org/wiki/Shakkei)
