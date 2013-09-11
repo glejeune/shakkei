@@ -47,6 +47,7 @@ defmodule CGI do
     encode_byte(c) ++ encode(cs)
   end
   def encode([]), do: []
+  def encode(s) when is_binary(s), do: String.from_char_list!(encode(String.to_char_list!(s)))
 
   # from edoc_lib source
   defp hex_octet(n) when n <= 9, do: [?0 + n]
